@@ -1,14 +1,18 @@
 import React, { CSSProperties } from 'react'
 
+type RatingType = {
+  value: number
+  changeRatingHandler: (num: ValueType) => void
+}
+
 type StarType = {
   selected: boolean
+  changeRatingHandler: () => void
 }
 
-type RatingType = {
-  value: 0 | 1 | 2 | 3 | 4 | 5
-}
+type ValueType = number
 
-const Star = ({ selected }: StarType) => {
+const Star = ({ selected, changeRatingHandler }: StarType) => {
   const style: CSSProperties = {
     padding: '2px',
     marginRight: '10px',
@@ -18,13 +22,25 @@ const Star = ({ selected }: StarType) => {
     fontWeight: selected ? 'bold' : 'normal',
   }
 
-  const star = selected ? <b>star</b> : 'star'
-  return <span style={style}>{star} </span>
+  return (
+    <span style={style} onClick={changeRatingHandler}>
+      star
+    </span>
+  )
 }
-const Rating = ({ value = 0 }: RatingType) => {
+
+const Rating = ({ value, changeRatingHandler }: RatingType) => {
   const stars = Array(5)
     .fill('')
-    .map((elem, idx) => <Star key={idx} selected={idx < value} />)
+    .map((elem, idx) => {
+      return (
+        <Star
+          key={idx}
+          selected={idx < value}
+          changeRatingHandler={() => changeRatingHandler(idx + 1)}
+        />
+      )
+    })
 
   return <div>{stars}</div>
 }

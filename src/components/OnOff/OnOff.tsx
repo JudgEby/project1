@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import style from './OnOff.module.css'
 
-const OnOff = () => {
-  const [isOn, setIsOn] = useState<boolean>(false)
+type OnOffType = {
+  isOn: boolean
+  setIsOn: (bool: boolean) => void
+}
 
-  const switchClickHandler = (value: boolean) => {
-    setIsOn(value)
-  }
+const OnOff = ({ isOn, setIsOn }: OnOffType) => {
   return (
     <div className={style.onOff}>
       <div
-        onClick={() => !isOn && switchClickHandler(true)}
+        onClick={() => !isOn && setIsOn(true)}
         className={`${isOn && style.on} ${style.rectangle}`}
       >
         On
       </div>
       <div
-        onClick={() => isOn && switchClickHandler(false)}
+        onClick={() => isOn && setIsOn(false)}
         className={`${!isOn && style.off} ${style.rectangle}`}
       >
         Off

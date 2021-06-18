@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import style from './Accordion.module.css'
 
 type AccordionType = {
   titleValue: string
-  collapsed?: boolean
+  collapsed: boolean
+  toggleCollapsed: () => void
 }
 
 type AccordionTitleType = {
   title: string
+  callback: () => void
 }
 
-const AccordionTitle = ({ title }: AccordionTitleType) => {
-  return <h3>{title}</h3>
+const AccordionTitle = ({ title, callback }: AccordionTitleType) => {
+  return <h3 onClick={callback}>{title}</h3>
 }
 
 const AccordionBody = () => {
@@ -23,11 +26,17 @@ const AccordionBody = () => {
   )
 }
 
-const Accordion = ({ titleValue, collapsed = true }: AccordionType) => {
+const Accordion = ({
+  titleValue,
+  collapsed,
+  toggleCollapsed,
+}: AccordionType) => {
   return (
     <div>
-      <AccordionTitle title={titleValue} />
-      {!collapsed && <AccordionBody />}
+      <div className={style.accordion}>
+        <AccordionTitle title={titleValue} callback={toggleCollapsed} />
+        {!collapsed && <AccordionBody />}
+      </div>
     </div>
   )
 }
