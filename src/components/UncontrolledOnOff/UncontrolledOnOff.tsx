@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 import style from './UncontrolledOnOff.module.css'
 
-const UncontrolledOnOff = () => {
+type UncontrolledOnOffType = {
+  onChange: (boolean: boolean) => void
+}
+
+const UncontrolledOnOff = ({ onChange }: UncontrolledOnOffType) => {
   const [isOn, setIsOn] = useState<boolean>(false)
 
   const switchClickHandler = (value: boolean) => {
     setIsOn(value)
+    onChange(value)
   }
   return (
     <div className={style.onOff}>

@@ -31,11 +31,12 @@ const App = () => {
         collapsed={isAccordionCollapsed}
         toggleCollapsed={() => setIsAccordionCollapsed(!isAccordionCollapsed)}
       />
-      <OnOff isOn={isOn} setIsOn={setIsOn} />
+      {/*<OnOff isOn={isOn} setIsOn={setIsOn} />*/}
       {/*<UncontrolledAccordion titleValue={'Menu2'} />*/}
       {/*Article 2*/}
       {/*<UncontrolledRating />*/}
-      {/*<UncontrolledOnOff />*/}
+      <UncontrolledOnOff onChange={setIsOn} />
+      {isOn.toString()}
     </div>
   )
 }

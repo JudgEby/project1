@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import style from './Accordion.module.css'
 
-type AccordionType = {
+export type AccordionType = {
   titleValue: string
   collapsed: boolean
   toggleCollapsed: () => void
@@ -13,7 +13,11 @@ type AccordionTitleType = {
 }
 
 const AccordionTitle = ({ title, callback }: AccordionTitleType) => {
-  return <h3 onClick={callback}>{title}</h3>
+  return (
+    <h3 className={style.title} onClick={callback}>
+      {title}
+    </h3>
+  )
 }
 
 const AccordionBody = () => {

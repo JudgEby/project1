@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react'
 
-type RatingType = {
+export type RatingType = {
   value: number
   changeRatingHandler: (num: ValueType) => void
 }

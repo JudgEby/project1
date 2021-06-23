@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './OnOff.module.css'
 
-type OnOffType = {
+export type OnOffType = {
   isOn: boolean
   setIsOn: (bool: boolean) => void
 }
