@@ -7,3 +7,11 @@
 .title {
     cursor: pointer;
 }
+
+.item {
+    cursor: pointer;
+}
+
+.item:hover {
+    background-color: #a7f1eb;
+}
