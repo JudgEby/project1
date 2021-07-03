@@ -36,6 +36,14 @@
     cursor: pointer;
 }
 
-.item:hover {
+.none:hover {
+    background-color: #a7f1eb;
+}
+
+/*.item:hover {*/
+/*    background-color: #a7f1eb;*/
+/*}*/
+
+.highlighted {
     background-color: #a7f1eb;
 }
