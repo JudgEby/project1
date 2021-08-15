@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import style from './App.module.css'
 import Accordion from './components/Accordion/Accordion'
 import Rating from './components/Rating/Rating'
-import OnOff from './components/OnOff/OnOff'
 import { ItemType, Select } from './components/Select/Select'
+import UseStateDemo from './components/UseStateDemo/UseStateDemo'
+import UseEffectDemo from './components/UseEffectDemo/UseEffectDemo'
 
 type PageTitleType = {
   title: string
@@ -17,8 +18,6 @@ const App = () => {
   const [ratingValue, setRatingValue] = useState<number>(0)
   const [isAccordionCollapsed, setIsAccordionCollapsed] =
     useState<boolean>(true)
-
-  const [isOn, setIsOn] = useState<boolean>(true)
 
   const [selectValue, setSelectValue] = useState(null)
 
@@ -37,6 +36,8 @@ const App = () => {
 
   return (
     <div className={style.app}>
+      <UseEffectDemo />
+      <UseStateDemo />
       <PageTitle title={'This is App'} />
       Article 1
       <Rating value={ratingValue} changeRatingHandler={setRatingValue} />
