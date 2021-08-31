@@ -1,0 +1,46 @@
+.App {
+	font-family: sans-serif;
+}
+.clock {
+	width: 120px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: solid 1px #ccc;
+	border-radius: 5px;
+	margin: 5px;
+	background: #ccc;
+	.analog-clock {
+		width: 100px;
+		height: 100px;
+		border: solid 1px #000;
+		border-radius: 50%;
+		position: relative;
+		background: #fff;
+		.dial {
+			position: absolute;
+			left: 50px;
+			top: 46px;
+			width: 46px;
+			transform-origin: bottom left;
+			&.seconds {
+				border: solid 2px green;
+			}
+			&.minutes {
+				border: solid 2px #cc0000;
+			}
+			&.hours {
+				width: 35px;
+				border: solid 3px #000;
+			}
+			&.pupka {
+				width: 0;
+				left: 44px;
+				top: 46px;
+				border: 6px solid rebeccapurple;
+				border-radius: 50%;
+			}
+		}
+	}
+}
